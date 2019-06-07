@@ -11,7 +11,7 @@ module Daynamic
         def initialize(first, last)
           @first = first
           @last = last
-          raise ArgumentError, "Range start must be less than range end" unless first < last
+          raise ArgumentError, "Range start must be less than range end" unless first.date < last.date
         end
 
         def match?(compare)
