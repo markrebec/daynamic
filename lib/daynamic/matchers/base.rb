@@ -1,7 +1,6 @@
 module Daynamic
   module Matchers
     class Base
-
       def self.match?(compare)
         new.match?(compare)
       end
