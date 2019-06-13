@@ -9,9 +9,11 @@ module Daynamic
         end
 
         def initialize(first, last)
+          first = Date.new(*first) if first.is_a?(Array)
+          last = Date.new(*last) if last.is_a?(Array)
           @first = first
           @last = last
-          raise ArgumentError, "Range start must be less than range end" unless first.date < last.date
+          raise ArgumentError, "Range start must be less than range end" unless @first.date < @last.date
         end
 
         def match?(compare)
