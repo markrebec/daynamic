@@ -15,6 +15,10 @@ module Daynamic
         def match?(compare)
           raise NotImplentedError, "You must define a `match?` method when inheriting from Daynamic::Matchers::Day::Base"
         end
+
+        def as_json(opts={})
+          { self.class.name.demodulize.underscore => day }
+        end
       end
     end
   end

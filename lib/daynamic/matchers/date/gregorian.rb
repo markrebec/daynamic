@@ -26,6 +26,10 @@ module Daynamic
         def match?(compare)
           compare.to_date == date(compare)
         end
+
+        def as_json(ops={})
+          { "date" => [year, month, day].compact }
+        end
       end
     end
   end

@@ -2,6 +2,14 @@ require "daynamic/engine"
 require "daynamic/matchers"
 
 module Daynamic
+  def self.dump(obj)
+    Matchers::Base.dump(obj)
+  end
+
+  def self.load(json)
+    Matchers::Base.load(json)
+  end
+
   def self.day_of_week(day)
     Matchers::Day.week(day)
   end

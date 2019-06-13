@@ -19,6 +19,10 @@ module Daynamic
         def match?(compare)
           compare.to_date >= first.date(compare) && compare.to_date <= last.date(compare)
         end
+
+        def as_json(opts={})
+          { "date_range" => [first.as_json.values.first, last.as_json.values.first] }
+        end
       end
     end
   end
