@@ -9,14 +9,19 @@ module Daynamic
         def load(json)
           json = JSON.parse(json) if json.is_a?(String)
 
-          json.map do |k,v|
-            if v.is_a?(Array)
-              Daynamic.send(k, *v)
-            elsif v.nil?
-              Daynamic.send(k)
-            else
-              Daynamic.send(k, v)
+          if json.is_a?(Array)
+            json.map { |d| self.load(d) }
+          else
+            matchers = json.map do |k,v|
+              if v.is_a?(Array)
+                Daynamic.send(k, *v)
+              elsif v.nil?
+                Daynamic.send(k)
+              else
+                Daynamic.send(k, v)
+              end
             end
+            matchers.length == 1 ? matchers.first : matchers
           end
         end
 
