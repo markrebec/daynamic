@@ -26,8 +26,16 @@ module Daynamic
         week_range(first, last).match?(compare)
       end
 
+      def self.weekday
+        Weekday.new
+      end
+
       def self.weekday?(compare)
         Weekday.match?(compare)
+      end
+
+      def self.weeknight
+        Weeknight.new
       end
 
       def self.weeknight?(compare)

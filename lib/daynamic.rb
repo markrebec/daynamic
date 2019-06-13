@@ -18,8 +18,16 @@ module Daynamic
     Matchers::Day.week_range?(compare, first, last)
   end
 
+  def self.weekday
+    Matchers::Day.weekday
+  end
+
   def self.weekday?(compare)
     Matchers::Day.weekday?(compare)
+  end
+
+  def self.weeknight
+    Matchers::Day.weeknight
   end
 
   def self.weeknight?(compare)
